@@ -54,33 +54,31 @@
 
     <system-properties>
 
-        <!-- IPv4 is not required, but setting this helps avoid unintended use of IPv6 -->
+
 
         <property name="java.net.preferIPv4Stack" value="true"/>
 
-        <!-- URI Properties -->
 
         <property name="org.apache.catalina.connector.URI_ENCODING" value="UTF-8"/>
 
         <property name="org.apache.catalina.connector.USE_BODY_ENCODING_FOR_QUERY_STRING" value="true"/> 
 
-        <!-- session ID : composed of encodedSessionId.jvmRoute -->
+
 
         <property name="org.apache.catalina.session.ManagerBase.SESSION_ID_ALPHABET" value="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789$-_"/>
 
-        <!-- hardening JBoss - prevent session fixation attack: https://access.redhat.com/solutions/227923 -->
+
 
         <property name="org.apache.catalina.authenticator.AuthenticatorBase.CHANGE_SESSIONID_ON_AUTH" value="true"/>
 
-        <!-- hardening JBoss - prevent 'Server:' response-header to be exposed in HTTP response :    https://access.redhat.com/solutions/158523 -->
+
 
         <property name="org.apache.coyote.http11.Http11Protocol.SERVER" value="''"/>
 
-	<!-- For Openshift/ACS use openshift-tcp ! For ULAM OBE use tcp or udp ! -->
+
 
         <property name="jgroups.protocol.stack" value="openshift-tcp"/>
 
-	<!-- For web.connector.protocol use standard "HTTP/1.1" or optimized "org.apache.coyote.http11.Http11NioProtocol"  -->
 
         <property name="web.connector.protocol" value="HTTP/1.1"/>
 
@@ -130,7 +128,7 @@
 
         </security-realms>
 
-	<!-- TODO audit-log tag : get validation from OJF team -->
+
 
         <audit-log>
 
@@ -208,9 +206,6 @@
 
     <profile>
 
-    <!-- using OJF logging mechanism instead of Openshift as JTracer is the solution used for Openshift/ACS logging -->
-
-    <!-- CONSOLE output uses LogstashFormatter instead of classic one -->
 
     <subsystem xmlns="urn:jboss:domain:logging:1.5">
 
@@ -306,21 +301,21 @@
 
 	<subsystem xmlns="urn:jboss:domain:ee:1.2">    
 
-           <!-- spec-descriptor-property-replacement : variabilize JEE spec files like web.xml, application.xml and ejb-jar.xml -->    
+
 
            <spec-descriptor-property-replacement>true</spec-descriptor-property-replacement>    
 
-           <!-- jboss-descriptor-property-replacement : variabilize jboss-deployment-structure.xml, jboss-web.xml, ... -->    
+
 
            <jboss-descriptor-property-replacement>true</jboss-descriptor-property-replacement>    
 
-           <!-- annotation-property-replacement : variablize annotations from your Java code annotations -->    
+
 
            <annotation-property-replacement>true</annotation-property-replacement>
 
         </subsystem>
 
-	<!-- TODO : REPL to DIST -->
+
 
         <subsystem xmlns="urn:jboss:domain:infinispan:1.5">
 
@@ -368,13 +363,7 @@
 
                 </replicated-cache>
 
-                <!--
-
-                  ~  Clustered cache used internally by EJB subsytem for managing the client-mapping(s) of
-
-                  ~                 the socketbinding referenced by the EJB remoting connector 
-
-                  -->
+            
 
                 <replicated-cache name="remote-connector-client-mappings" mode="SYNC" batching="true"/>
 
@@ -738,17 +727,9 @@
 
         </interface>
 
-        <!-- TODO - only show this if the jacorb subsystem is added  -->
+
 
         <interface name="unsecure">
-
-            <!--
-
-              ~  Used for IIOP sockets in the standard configuration.
-
-              ~                  To secure JacORB you need to setup SSL 
-
-              -->
 
             <inet-address value="${jboss.bind.address.unsecure:0.0.0.0}"/>
 
