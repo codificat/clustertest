@@ -1,25 +1,3 @@
-
-Skip to content
-This repository
-
-    Pull requests
-    Issues
-    Gist
-
-    @jkaurredhat
-
-1
-0
-
-    669
-
-bdecoste/jboss-eap-quickstarts forked from jboss-developer/jboss-eap-quickstarts
-
-jboss-eap-quickstarts/helloworld/configuration/standalone-openshift.xml
-@bdecoste bdecoste 2 days ago test
-
-1 contributor
-599 lines (598 sloc) 29.32 kB
 <?xml version="1.0" encoding="UTF-8"?>
 <server xmlns="urn:jboss:domain:1.7">
    <extensions>
