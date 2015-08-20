@@ -353,25 +353,6 @@
          <jpa default-datasource="" default-extended-persistence-inheritance="DEEP" />
       </subsystem>
       <subsystem xmlns="urn:jboss:domain:jsf:1.0" />
-      <subsystem xmlns="urn:jboss:domain:keycloak:1.1">
-         <realm name="demo">
-            <realm-public-key>MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAkaeADZMPheH5gj246y8dwk5b7cyPWshYgEXf+PYK3sC33h0QsR06rQnnxuyjk/3NgVHoy9/vUXgsoDvwtIp3tl09sGKMoLsebOMynTm72l+u5TBg6F4M7+J4YmK8CMALKzektBqmoQVTfgihvqPuPPOa7sEp14/YMRqiS11SOP821W9awWIz9YRku38DEpU09pQWKZfx/lNyhcxruoby1PvfaahOs0mzCct4sqQrVwIxQ2FcdEsJ2T/tULYhS/XS1boIqNtlMMUixtk2sCBx/N2q+685i3Kf9p5cn/h2p/ma/1tb+9iBljRMy0SZt3SWEeMwxUAN8tkjwj3iEqjNswIDAQAB</realm-public-key>
-            <auth-server-url>http://keycloak.cloudapps.example.com/auth</auth-server-url>
-            <ssl-required>none</ssl-required>
-            <disable-trust-manager>true</disable-trust-manager>
-            <allow-any-hostname>true</allow-any-hostname>
-         </realm>
-         <secure-deployment name="jboss-helloworld.war">
-            <realm>demo</realm>
-            <resource>helloworld</resource>
-            <credential name="password">cyclone1</credential>
-            <auth-server-url>http://keycloak.cloudapps.example.com/auth</auth-server-url>
-            <public-client>true</public-client>
-            <allow-any-hostname>true</allow-any-hostname>
-            <enable-basic-auth>true</enable-basic-auth>
-            <credential name="secret">password</credential>
-         </secure-deployment>
-      </subsystem>
       <subsystem xmlns="urn:jboss:domain:mail:1.2">
          <mail-session name="default" jndi-name="java:jboss/mail/Default">
             <smtp-server outbound-socket-binding-ref="mail-smtp" />
