@@ -25,7 +25,6 @@
       <extension module="org.jboss.as.web" />
       <extension module="org.jboss.as.webservices" />
       <extension module="org.jboss.as.weld" />
-      <extension module="org.keycloak.keycloak-adapter-subsystem"/>
    </extensions>
    <management>
       <security-realms>
